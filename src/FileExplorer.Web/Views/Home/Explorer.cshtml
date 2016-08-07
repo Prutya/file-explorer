@@ -3,7 +3,20 @@
 }
 
 <div ng-app="explorerApp" ng-controller="explorerController" class="container">
+    
     <h1>Explorer</h1>
+    <table class="table table-responsive table-bordered table-striped">
+        <thead>
+            <td>Less than 10 MB</td>
+            <td>10 MB - 50 MB</td>
+            <td>More than 100 MB</td>
+        </thead>
+        <tbody>
+            <td>{{ data.smallNumber }}</td>
+            <td>{{ data.mediumNumber }}</td>
+            <td>{{ data.largeNumber }}</td>
+        </tbody>
+    </table>
     <label>current path: {{ data.path }}</label>
     <ul class="list-group">
         <li class="list-group-item">
@@ -13,8 +26,6 @@
             <span class="glyphicon glyphicon-folder-close"></span>
             <a href="#" ng-click="changeDir(item.path)">{{ item.name }}</a>
         </li>
-    </ul>
-    <ul class="list-group">
         <li ng-repeat="item in data.files" class="list-group-item">
             <span class="glyphicon glyphicon-file"></span>
             <span>{{ item.name }}</span>
