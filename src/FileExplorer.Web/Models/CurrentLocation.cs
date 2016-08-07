@@ -6,5 +6,6 @@ namespace FileExplorer.Web.Models
         public string Path { get; set; }
         public Directory[] Directories { get; set; }
         public File[] Files { get; set; }
+        public FilesNumber FilesNumber { get; set; }
     }
 }
