@@ -2,6 +2,27 @@
     ViewData["Title"] = "Explorer";
 }
 
+<div ng-app="explorerApp" ng-controller="explorerController" class="container">
+    <h1>Explorer</h1>
+    <label>current path: {{ data.path }}</label>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="#" ng-click="changeDir(data.parentPath)">..</a>
+        </li>
+        <li ng-repeat="item in data.directories" class="list-group-item">
+            <span class="glyphicon glyphicon-folder-close"></span>
+            <a href="#" ng-click="changeDir(item.path)">{{ item.name }}</a>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li ng-repeat="item in data.files" class="list-group-item">
+            <span class="glyphicon glyphicon-file"></span>
+            <span>{{ item.name }}</span>
+            <span class="pull-right">{{ item.size }} B</span>
+        </li>
+    </ul>
+</div>
+
 @section scripts {
     <script src="/js/app/explorer.js"></script>
 }
